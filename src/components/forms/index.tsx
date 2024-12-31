@@ -47,7 +47,7 @@ export const Form = () => {
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Descreva a imagem "
+            placeholder="Descreva a imagem (preferencialmente em inglês)"
             required
           />
           <label htmlFor="style">Selecione um estilo</label>
