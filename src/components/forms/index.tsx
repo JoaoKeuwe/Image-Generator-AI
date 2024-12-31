@@ -47,7 +47,7 @@ export const Form = () => {
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Descrição gerada automaticamente com base no estilo escolhido"
+            placeholder="Descreva a imagem "
             required
           />
           <label htmlFor="style">Selecione um estilo</label>
