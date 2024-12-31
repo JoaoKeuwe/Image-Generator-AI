@@ -92,7 +92,7 @@ export const Form = () => {
         {loading && (
           <>
             <Loading /> <br />
-            <p>Gerando imagem...</p>
+            <p className="generate-text">Gerando imagem...</p>
           </>
         )}
       </div>
