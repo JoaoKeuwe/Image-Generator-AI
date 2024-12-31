@@ -2,6 +2,7 @@
 import { useImageGenerator } from "@/hooks/useImageGenerator";
 import Image from "next/image";
 import { useState } from "react";
+import Loading from "@/components/loading";
 
 const prompts: { [key: string]: string } = {
   Real: "Create a highly realistic image that resembles the real world, with accurate details and authentic textures. Use vibrant, vibrant colors to bring the scene to life. The composition should be balanced and visually appealing. Include elements that highlight natural beauty, such as lush landscapes, bright lights, or objects with rich colors. Make sure the lighting enhances the colors and creates depth, providing a sense of immersion.",
@@ -88,7 +89,12 @@ export const Form = () => {
             </button>
           </>
         )}
-        {loading && <p>Gerando imagem...</p>}
+        {loading && (
+          <>
+            <Loading /> <br />
+            <p>Gerando imagem...</p>
+          </>
+        )}
       </div>
     </div>
   );
