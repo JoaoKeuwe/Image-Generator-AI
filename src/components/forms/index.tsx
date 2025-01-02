@@ -3,6 +3,7 @@ import { useImageGenerator } from "@/hooks/useImageGenerator";
 import Image from "next/image";
 import { useState } from "react";
 import Loading from "@/components/loading";
+import { ImagesExample } from "@/components/images-example";
 
 const prompts: { [key: string]: string } = {
   Real: "Create a highly realistic image that resembles the real world, with accurate details and authentic textures. Use vibrant, vibrant colors to bring the scene to life. The composition should be balanced and visually appealing. Include elements that highlight natural beauty, such as lush landscapes, bright lights, or objects with rich colors. Make sure the lighting enhances the colors and creates depth, providing a sense of immersion.",
@@ -18,7 +19,7 @@ const prompts: { [key: string]: string } = {
 export const Form = () => {
   const [description, setDescription] = useState("");
   const [style, setStyle] = useState<keyof typeof prompts>("Real");
-  const { generateImage, imageUrl, loading, error } = useImageGenerator();
+  const { generateImage, imageUrl, loading } = useImageGenerator();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,60 +41,63 @@ export const Form = () => {
 
   return (
     <div className="container">
-      <div className="form-container">
-        <h1>Gerador de Imagens com IA</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="description">Descrição personalizada</label>
-          <textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Descreva a imagem (preferencialmente em inglês)"
-            required
-          />
-          <label htmlFor="style">Selecione um estilo</label>
-          <select
-            id="style"
-            value={style}
-            style={{ marginBottom: "30px" }}
-            onChange={(e) => setStyle(e.target.value as keyof typeof prompts)}
-          >
-            {Object.keys(prompts).map((key) => (
-              <option key={key} value={key}>
-                {key}
-              </option>
-            ))}
-          </select>
-          <button type="submit" disabled={loading}>
-            {loading ? "Gerando..." : "Gerar Imagem"}
-          </button>
-        </form>
-        {error && <div className="error">{error}</div>}
-      </div>
-      <div className="image-container">
-        {imageUrl && (
-          <>
-            <Image
-              src={imageUrl}
-              alt="Imagem gerada"
-              width={400}
-              height={400}
-              style={{
-                marginBottom: "30px",
-                marginTop: "30px",
-                borderRadius: "20px",
-              }}
-            />
-            <button onClick={handleDownload} className="download-button">
-              Baixar Imagem
-            </button>
-          </>
-        )}
-        {loading && (
-          <>
-            <Loading /> <br />
-          </>
-        )}
+      <div className="wrapper">
+        <div className="form-box">
+          <h1>Gerador de Imagens com IA</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                placeholder="Descreva a imagem (preferencialmente em inglês)"
+                required
+              />
+            </div>
+            <div className="controls">
+              <select
+                value={style}
+                onChange={(e) =>
+                  setStyle(e.target.value as keyof typeof prompts)
+                }
+              >
+                {Object.keys(prompts).map((key) => (
+                  <option key={key} value={key}>
+                    {key}
+                  </option>
+                ))}
+              </select>
+              <button type="submit" disabled={loading}>
+                {loading ? "Gerando..." : "Gerar Imagem"}
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div className="image-area">
+          {loading && (
+            <div className="loading-wrapper">
+              <Loading />
+            </div>
+          )}
+
+          {!imageUrl && !loading && <ImagesExample />}
+
+          {imageUrl && (
+            <div className="generated-image-wrapper">
+              <div className="generated-image">
+                <Image
+                  src={imageUrl}
+                  alt="Imagem gerada"
+                  fill
+                  className="image"
+                />
+              </div>
+              <button onClick={handleDownload} className="download-button">
+                Baixar Imagem
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
