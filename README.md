@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gerador de Imagens com IA 🎨
 
-## Getting Started
+<!-- Adicione um vídeo mostrando o projeto em funcionamento abaixo. Substitua esta linha pelo vídeo quando estiver pronto. -->
 
-First, run the development server:
+## Sobre o Projeto
+
+Este é um projeto pessoal que utiliza tecnologias modernas para criar imagens a partir de prompts fornecidos pelo usuário. A aplicação permite que você selecione diferentes estilos artísticos para gerar imagens personalizadas. Foi construído com **Next.js**, utilizando a API de IA da **Hugging Face** para a geração das imagens e **Supabase** para o gerenciamento de dados.
+
+## Funcionalidades
+
+- 🎨 **Geração de imagens**: Crie imagens personalizadas a partir de descrições textuais (prompts).
+- 🎭 **Estilos artísticos**: Escolha entre diversos estilos para personalizar o resultado.
+- 🔐 **Armazenamento seguro**: Salve seus prompts e resultados com integração ao Supabase.
+- 🔄 **Interface responsiva**: Compatível com desktops, tablets e dispositivos móveis.
+
+## Tecnologias Utilizadas
+
+- [Next.js](https://nextjs.org/): Framework de React para aplicações web modernas.
+- [React](https://react.dev/): Biblioteca para criar interfaces de usuário.
+- [Hugging Face API](https://huggingface.co/): Plataforma para modelos de IA.
+- [Supabase](https://supabase.com/): Backend-as-a-Service para autenticação e banco de dados.
+- [Tailwind CSS](https://tailwindcss.com/): Framework de CSS utilitário para estilização.
+
+## Estrutura do Projeto
+
+🔗 **Organização**: Seguindo boas práticas do mercado, o projeto está estruturado em módulos, com pastas bem organizadas para facilitar futuras atualizações.
+
+📊 **Responsividade**: Totalmente responsivo, garantindo uma experiência consistente em qualquer dispositivo.
+
+🔍 **Histórico**: Diversos commits descritivos foram realizados, documentando a evolução do projeto.
+
+## Guia de Instalação
+
+Siga estas instruções para instalar e executar o projeto localmente:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone o repositório
+$ git clone git@github.com:seu-usuario/seu-repositorio.git
+
+# Entre no diretório do projeto
+$ cd gerador-de-imagens-ia
+
+# Instale as dependências
+$ npm install
+
+# Execute o projeto
+$ npm run dev
+
+# Abra no navegador, caso não abra automaticamente
+$ http://localhost:3000/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Testes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para executar os testes do projeto:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Comando para rodar os testes
+$ npm test
+```
 
-## Learn More
+## Como Contribuir
 
-To learn more about Next.js, take a look at the following resources:
+1. Fork o repositório.
+2. Crie uma branch para sua funcionalidade: `git checkout -b minha-nova-funcionalidade`.
+3. Faça as alterações necessárias e commit: `git commit -m 'Adiciona minha nova funcionalidade'`.
+4. Faça o push da branch: `git push origin minha-nova-funcionalidade`.
+5. Abra um Pull Request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Acesse a versão publicada da aplicação: [Gerador de Imagens com IA](https://seu-deploy.vercel.app/) 💻
 
-## Deploy on Vercel
+## Considerações Finais
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este projeto foi desenvolvido com foco no aprendizado e na exploração de tecnologias modernas. Feedbacks e sugestões são sempre bem-vindos!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
