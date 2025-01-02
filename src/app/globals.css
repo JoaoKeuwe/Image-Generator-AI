@@ -121,6 +121,11 @@ body {
   gap: 1rem;
 }
 
+.mock-grid img {
+   user-select: none;
+  pointer-events: none;
+}
+
 .mock-image {
   position: relative;
   aspect-ratio: 1;
