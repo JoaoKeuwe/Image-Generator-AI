@@ -12,7 +12,7 @@ const prompts: { [key: string]: string } = {
   Neon: "Create a bold and vibrant composition using bright colors like neon and fluid shapes that escape reality.",
   Anime:
     "Create an anime-style image with a focus on facial expressions, colorful landscapes, and dynamic scenes.",
-  Watercolor:
+  Aquarela:
     "Generate a watercolor-style image with soft strokes and flowing colors, capturing the essence of a classic painting.",
 };
 
