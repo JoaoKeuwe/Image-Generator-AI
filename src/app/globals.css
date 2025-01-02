@@ -118,7 +118,7 @@ body {
   justify-content: center;
 }
 
-.mock-grid {
+/* .mock-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
@@ -135,6 +135,37 @@ body {
   border-radius: 0.5rem;
   overflow: hidden;
   background-color: #2a2a2a;
+} */
+
+
+.mock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.mock-image {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInRight 1s forwards;
+}
+
+.image {
+  object-fit: cover;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .generated-image-wrapper {
