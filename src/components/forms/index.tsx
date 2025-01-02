@@ -76,7 +76,7 @@ export const Form = () => {
         <div className="image-area">
           {error && (
             <div className="error-message" style={{ color: "red" }}>
-              {error}
+              Tnete gerar a imagem novamente <br /> Erro: {error}
             </div>
           )}
 
