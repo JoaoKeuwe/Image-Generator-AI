@@ -19,7 +19,7 @@ const prompts: { [key: string]: string } = {
 export const Form = () => {
   const [description, setDescription] = useState("");
   const [style, setStyle] = useState<keyof typeof prompts>("Real");
-  const { generateImage, imageUrl, loading } = useImageGenerator();
+  const { generateImage, imageUrl, loading, error } = useImageGenerator();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,6 +74,12 @@ export const Form = () => {
         </div>
 
         <div className="image-area">
+          {error && (
+            <div className="error-message" style={{ color: "red" }}>
+              {error}
+            </div>
+          )}
+
           {loading && (
             <div className="loading-wrapper">
               <Loading />
