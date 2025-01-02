@@ -11,7 +11,6 @@ export async function POST(req: Request) {
   const { prompt } = await req.json();
 
   try {
-    // Fazendo a requisição para Hugging Face
     const huggingFaceResponse = await fetch(HUGGING_FACE_API, {
       method: "POST",
       headers: {
@@ -29,7 +28,6 @@ export async function POST(req: Request) {
     const huggingFaceResult = await huggingFaceResponse.blob();
     const fileName = `image-${Date.now()}.jpg`;
 
-    // Fazendo o upload para Supabase
     const supabaseResponse = await fetch(
       `${SUPABASE_URL}/storage/v1/object/${SUPABASE_BUCKET}/${fileName}`,
       {
