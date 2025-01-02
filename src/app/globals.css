@@ -106,12 +106,13 @@ body {
 
 .image-area {
   position: relative;
-  min-height: 300px;
+  min-height: 700px;
 }
 
 .loading-wrapper {
   position: absolute;
   inset: 0;
+  height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
