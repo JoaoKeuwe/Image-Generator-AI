@@ -54,7 +54,11 @@ export const Form = () => {
               />
             </div>
             <div className="controls">
-              <select
+              <div style={{width: '100%', display: 'flex', flexDirection: 'column', gap: '10px'}}>
+              <label htmlFor="" style={{fontWeight: 'bold'}}>Selecione o tipo da imagem</label>
+
+                <select
+                  style={{width: '100%'}}
                 value={style}
                 onChange={(e) =>
                   setStyle(e.target.value as keyof typeof prompts)
@@ -66,6 +70,7 @@ export const Form = () => {
                   </option>
                 ))}
               </select>
+              </div>
               <button type="submit" disabled={loading}>
                 {loading ? "Gerando..." : "Gerar Imagem"}
               </button>
