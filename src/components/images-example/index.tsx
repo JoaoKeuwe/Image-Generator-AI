@@ -25,9 +25,36 @@ export const ImagesExample = () => {
   ];
   return (
     <>
+      <style jsx>{`
+        .mock-grid {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .mock-image {
+          position: relative;
+          width: 18%; /* Ajuste conforme necessário */
+          height: 30%; /* Ajuste conforme necessário */
+          opacity: 0;
+          animation: fadeInRight 1s forwards;
+        }
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(100%);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
       <div className="mock-grid">
         {mockImages.map((src, index) => (
-          <div key={index} className="mock-image">
+          <div
+            key={index}
+            className="mock-image"
+            style={{ animationDelay: `${index * 0.2}s` }}
+          >
             <Image
               src={src}
               alt={`Mock image ${index + 1}`}
