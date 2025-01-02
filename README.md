@@ -1,6 +1,9 @@
 # Gerador de Imagens com IA 🎨
 
-<!-- Adicione um vídeo mostrando o projeto em funcionamento abaixo. Substitua esta linha pelo vídeo quando estiver pronto. -->
+
+
+https://github.com/user-attachments/assets/8275f802-8013-41fc-88e8-7369095b0b94
+
 
 ## Sobre o Projeto
 
@@ -35,10 +38,10 @@ Siga estas instruções para instalar e executar o projeto localmente:
 
 ```bash
 # Clone o repositório
-$ git clone git@github.com:seu-usuario/seu-repositorio.git
+$ git clone https://github.com/JoaoKeuwe/Image-Generator-AI
 
 # Entre no diretório do projeto
-$ cd gerador-de-imagens-ia
+$ cd Image-Generator-AI
 
 # Instale as dependências
 $ npm install
@@ -50,26 +53,10 @@ $ npm run dev
 $ http://localhost:3000/
 ```
 
-## Testes
-
-Para executar os testes do projeto:
-
-```bash
-# Comando para rodar os testes
-$ npm test
-```
-
-## Como Contribuir
-
-1. Fork o repositório.
-2. Crie uma branch para sua funcionalidade: `git checkout -b minha-nova-funcionalidade`.
-3. Faça as alterações necessárias e commit: `git commit -m 'Adiciona minha nova funcionalidade'`.
-4. Faça o push da branch: `git push origin minha-nova-funcionalidade`.
-5. Abra um Pull Request.
 
 ## Deploy
 
-Acesse a versão publicada da aplicação: [Gerador de Imagens com IA](https://seu-deploy.vercel.app/) 💻
+Acesse a versão publicada da aplicação: [Gerador de Imagens com IA](https://generate-image-keuwe.vercel.app/) 💻
 
 ## Considerações Finais
 
