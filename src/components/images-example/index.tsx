@@ -37,6 +37,7 @@ export const ImagesExample = () => {
             alt={`Mock image ${index + 1}`}
             fill
             className="image"
+            priority
           />
         </div>
       ))}
