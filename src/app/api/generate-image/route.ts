@@ -8,7 +8,7 @@ const SUPABASE_URL = process.env.SUPABASE_URL!;
 const SUPABASE_BUCKET = process.env.SUPABASE_BUCKET!;
 
 // Timeout helper
-const fetchWithTimeout = (url: string, options: RequestInit, timeout = 15000) =>
+const fetchWithTimeout = (url: string, options: RequestInit, timeout = 30000) =>
   Promise.race([
     fetch(url, options),
     new Promise((_, reject) =>
