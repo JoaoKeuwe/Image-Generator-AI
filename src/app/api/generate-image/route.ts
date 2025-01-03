@@ -7,11 +7,21 @@ const BEARER_TOKEN = process.env.BEARER_TOKEN!;
 const SUPABASE_URL = process.env.SUPABASE_URL!;
 const SUPABASE_BUCKET = process.env.SUPABASE_BUCKET!;
 
+// Timeout helper
+const fetchWithTimeout = (url: string, options: RequestInit, timeout = 15000) =>
+  Promise.race([
+    fetch(url, options),
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("Request timed out")), timeout)
+    ),
+  ]);
+
 export async function POST(req: Request) {
   const { prompt } = await req.json();
 
   try {
-    const huggingFaceResponse = await fetch(HUGGING_FACE_API, {
+    // Chamada para Hugging Face API
+    const huggingFacePromise = fetchWithTimeout(HUGGING_FACE_API, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${BEARER_TOKEN}`,
@@ -20,15 +30,23 @@ export async function POST(req: Request) {
       body: JSON.stringify({ inputs: prompt }),
     });
 
+    // Espera a resposta da Hugging Face
+    const huggingFaceResponse = await huggingFacePromise as Response;
+
     if (!huggingFaceResponse.ok) {
       const errorResponse = await huggingFaceResponse.json();
       throw new Error(errorResponse.error || "Erro na API Hugging Face");
     }
 
     const huggingFaceResult = await huggingFaceResponse.blob();
+
+    // Compressão da imagem (opcional, se suportado pelo Supabase e caso o blob seja muito grande)
+    const compressedImage = huggingFaceResult; // Adicione lógica de compressão aqui, se necessário.
+
     const fileName = `image-${Date.now()}.jpg`;
 
-    const supabaseResponse = await fetch(
+    // Upload para o Supabase
+    const supabasePromise = fetchWithTimeout(
       `${SUPABASE_URL}/storage/v1/object/${SUPABASE_BUCKET}/${fileName}`,
       {
         method: "POST",
@@ -36,9 +54,11 @@ export async function POST(req: Request) {
           Authorization: `Bearer ${SUPABASE_API_KEY}`,
           "Content-Type": huggingFaceResult.type,
         },
-        body: huggingFaceResult,
+        body: compressedImage,
       }
     );
+
+    const supabaseResponse: any = await supabasePromise;
 
     if (!supabaseResponse.ok) {
       throw new Error("Erro ao enviar a imagem para o Supabase");
